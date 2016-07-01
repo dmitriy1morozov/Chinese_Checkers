@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tvPlayer1" type="id" />
+    <item name="tvPlayer2" type="id" />
+    <item name="tvPlayer3" type="id" />
+    <item name="tvPlayer4" type="id" />
+    <item name="tvPlayer5" type="id" />
+    <item name="tvPlayer6" type="id" />
+</resources>

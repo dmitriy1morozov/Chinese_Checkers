@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/alert_dialog_choose_number_of_players"
+        android:textSize="25dp"/>
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberPicker"
+        android:layout_gravity="center_horizontal"
+        android:descendantFocusability="blocksDescendants"/>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TableRow>
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tbPlayer1"
+                android:textOff="@string/Human"
+                android:textOn="@string/AI"/>
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tbPlayer3"
+                android:textOff="@string/Human"
+                android:textOn="@string/AI"
+                android:visibility="invisible"/>
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tbPlayer5"
+                android:textOff="@string/Human"
+                android:textOn="@string/AI"
+                android:visibility="invisible"/>/>
+        </TableRow>
+
+        <TableRow>
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tbPlayer2"
+                android:textOff="@string/Human"
+                android:textOn="@string/AI"/>
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tbPlayer4"
+                android:textOff="@string/Human"
+                android:textOn="@string/AI"
+                android:visibility="invisible"/>
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tbPlayer6"
+                android:textOff="@string/Human"
+                android:textOn="@string/AI"
+                android:visibility="invisible"/>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

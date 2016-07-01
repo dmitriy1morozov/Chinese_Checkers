@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_new_game"
+        android:title="@string/menu_new_game"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="100"/>
+
+    <item
+        android:id="@+id/menu_settings"
+        android:title="@string/settings"
+        app:showAsAction="never"
+        android:orderInCategory="110"/>
+
+    <item
+        android:id="@+id/menu_help"
+        android:title="@string/help"
+        app:showAsAction="never"
+        android:orderInCategory="120"/>
+</menu>

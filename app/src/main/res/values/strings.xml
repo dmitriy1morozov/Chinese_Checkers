@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Chinese checkers</string>
+    <string name="menu_new_game">New Game</string>
+    <string name="alert_dialog_choose_number_of_players">Choose number of players</string>
+    <string name="current_player">Current player:</string>
+    <string name="Human">Human</string>
+    <string name="AI">AI</string>
+    <string name="screen_always_on">Screen is always on</string>
+    <string name="settings">Settings</string>
+    <string name="help">Help</string>
+
+    <string name="exit_app">This will erase all your progress.\r\n Press back to exit.</string>
+</resources>

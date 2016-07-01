@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@color/colorBackgroundMain"/>
+
+    <item>
+        <bitmap
+            android:antialias="true"
+            android:src="@drawable/yin_yang"
+            android:gravity="center"/>
+    </item>
+
+</layer-list>
