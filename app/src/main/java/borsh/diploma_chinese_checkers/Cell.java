@@ -8,7 +8,7 @@ import android.util.Log;
 public class Cell
 {
     // ------------ Constants -------------
-    public final static String TAG = "===cell===";
+    public final static String TAG = "===Cell===";
 
     // ------------ Fields ----------------
     protected int     _x;
@@ -32,6 +32,18 @@ public class Cell
     public int getY()
     {
         return _y;
+    }
+
+    public CellCube getCellCube ()
+    {
+        int xPresent = _x - 6;
+        int yPresent = _y - 8;
+
+        int xCube = xPresent - (yPresent - (yPresent & 1)) / 2;                                     // xCube = x - (y - (y&1)) / 2
+        int zCube = yPresent;                                                                       // zCube = y
+        int yCube = -xCube - zCube;                                                                 // yCube = -xCube - zCube
+
+        return new CellCube(xCube, yCube, zCube);
     }
     public boolean getOccupiedStatus()
     {
@@ -112,6 +124,6 @@ public class Cell
     @Override
     public String toString()
     {
-        return "Cell (" + _x + "," + _y + "); Occupied = " + this._isOccupied;
+        return "(" + _x + "," + _y + "); Occupied = " + this._isOccupied;
     }
 }

@@ -33,7 +33,7 @@ public class main extends AppCompatActivity implements SoundPool.OnLoadCompleteL
 {
     // ------------ Constants ------------
     private final static String TAG = "===main===";
-    public final static int GAME_TABLE_WIDTH  = 25;
+    public final static int GAME_TABLE_WIDTH  = 13;
     public final static int GAME_TABLE_HEIGHT = 17;
 
     // ------------ Sound Constants --------------
@@ -86,6 +86,7 @@ public class main extends AppCompatActivity implements SoundPool.OnLoadCompleteL
         main._TLgameTable = (TableLayout) findViewById(R.id.tlGameTable);
         main._HBcurrentPlayer = (HexagonButton) findViewById(R.id.hbCurrentPlayer);
         main.this.addTiles();
+
         _homes[Home.RED] = new Home(this, getResources().getColor(R.color.colorRed));
         _homes[Home.PURPLE] = new Home(this, getResources().getColor(R.color.colorPurple));
         _homes[Home.BLUE] = new Home(this, getResources().getColor(R.color.colorBlue));
@@ -149,6 +150,7 @@ public class main extends AppCompatActivity implements SoundPool.OnLoadCompleteL
         //Overlap tiles! THE DIFFERENCE IN ROWS IS HERE
         TLrowLastLP.setMargins(0, overlapMargin, 0, 0);
 
+        //LayoutParams for all the middle rows
         TableLayout.LayoutParams TLrowLP = new TableLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         TLrowLP.gravity = Gravity.CENTER_HORIZONTAL;
         TLrowLP.weight = 1;
@@ -182,23 +184,19 @@ public class main extends AppCompatActivity implements SoundPool.OnLoadCompleteL
             for (int i = 0; i < GAME_TABLE_WIDTH; i++)
             {
                 HexagonButton tvTile = new HexagonButton(this);
-
                 tvTile.setVisibility(View.INVISIBLE);
 
-                if ((i % 2 == 0 && j % 2 == 0) || ((i + 1) % 2 == 0 && (j + 1) % 2 == 0))           //заполняем сетку в шахматном порядке ноликами 0
+                if (!(j % 2 == 1 && i == GAME_TABLE_WIDTH - 1))                                     // не заполняем виджетами последний столбце нечетных строк (там будет пробед)
                 {
-                    if (i >= GAME_TABLE_WIDTH || j >= GAME_TABLE_HEIGHT)                            // условие не выхода за пределы массива
-                    {
-                        continue;
-                    }
-
                     TRrow[j].addView(tvTile, TRfieldLP);
 
                     main._HBgameTableArray[i][j] = tvTile;
                     // Первый видимый треугольник
+                    int remainder  = j % 2;
+                    int jOptimized = (j + remainder) / 2;
                     if (j < (GAME_TABLE_HEIGHT - 4) &&
-                            (i - j) < (GAME_TABLE_HEIGHT - 4) &&
-                            (i + j) >= (GAME_TABLE_WIDTH - 13))
+                            (i + jOptimized) >= 6 &&
+                            (i - j / 2) <= 6)
                     {
                         tvTile.setVisibility(View.VISIBLE);
                         main._gameTableCell[i][j] = new Cell(i, j);                                      //initialize free cells
@@ -206,20 +204,18 @@ public class main extends AppCompatActivity implements SoundPool.OnLoadCompleteL
                     }
                     // Второй видимый треугольник (перевернутый)
                     if ((j >= 4) &&
-                            (j - i) <= 4 &&
-                            (i + j) <= (GAME_TABLE_WIDTH + 4))
+                            (i + jOptimized) <= 14 &&
+                            (j / 2 - i) <= 2)
                     {
                         tvTile.setVisibility(View.VISIBLE);
                         main._gameTableCell[i][j] = new Cell(i, j);                                      //initialize free cells
                         main._HBgameTableArray[i][j].setTag(main._gameTableCell[i][j]);                   //link TextView of GameTable with corresponding cell object
                     }
-                    continue;
                 }
 
                 //Добавляем пробелы слева и справа (по половине ячейки) для того, чтобы сместить ячейки и сделать сетку диагональной
                 if ((i == 0 || i == GAME_TABLE_WIDTH - 1) &&
-                        (j >= 4 || j < GAME_TABLE_HEIGHT - 4) &&
-                        (j + 1) % 2 == 0)
+                        (j % 2 == 1))
                 {
                     Space space         = new Space(this);
                     int   displayMargin = (int) getResources().getDimension(R.dimen.activity_horizontal_margin);
@@ -227,7 +223,14 @@ public class main extends AppCompatActivity implements SoundPool.OnLoadCompleteL
                     int   spaceSize     = (displaySize - displayMargin * 2) / 13;
                     spaceSize /= 2;
                     TableRow.LayoutParams TRLP = new TableRow.LayoutParams(spaceSize, ViewGroup.LayoutParams.MATCH_PARENT);
-                    TRrow[j].addView(space, TRLP);
+                    if(i == 0)
+                    {
+                        TRrow[j].addView(space, 0, TRLP);
+                    }
+                    else
+                    {
+                        TRrow[j].addView(space, TRLP);
+                    }
                 }
             }
         }
@@ -380,7 +383,10 @@ public class main extends AppCompatActivity implements SoundPool.OnLoadCompleteL
                     @Override
                     public void onClick(View v)
                     {
-                        Log.d(TAG, "Clicked: x = " + x + " y = " + y);
+                        Log.d(TAG, "Clicked odd-r: " + main._gameTableCell[x][y].toString());
+                        CellCube cellCube = (new CellCube(x, y));
+                        Log.d(TAG, "Clicked cube: " + cellCube.toString());
+
                         Cell clickedCell = main._gameTableCell[x][y];
 
                         try
@@ -570,7 +576,6 @@ public class main extends AppCompatActivity implements SoundPool.OnLoadCompleteL
             main._streamId[soundId] = main._soundPool.play(main._soundId[soundId], main._settings.get_soundVolume(), main._settings.get_soundVolume(), 1, 0, 1);
         }
     }
-
 
     //======================================== MENU ================================================
     @Override

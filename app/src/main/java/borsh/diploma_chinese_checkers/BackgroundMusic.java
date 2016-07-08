@@ -17,7 +17,7 @@ public class BackgroundMusic extends Thread
     public Context     _context;
     private MediaPlayer _mediaPlayer;
     private boolean     _isRunning = false;
-    private boolean _isPause = false;
+    //private boolean _isPause = false;
 
     //============================== Constructor ===================================================
     public BackgroundMusic(Context context)

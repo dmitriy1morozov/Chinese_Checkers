@@ -182,7 +182,6 @@ public class HexagonButton extends ImageView
         }
     }
 
-    //TODO Requires corrections
     public void startCheckerAnimation(final AnimationDrawable animation)
     {
         this.setBackgroundDrawable(animation);
@@ -194,7 +193,6 @@ public class HexagonButton extends ImageView
         });
     }
 
-    //TODO Requires corrections
     public void stopCheckerAnimation(AnimationDrawable animation)
     {
         if(animation != null)

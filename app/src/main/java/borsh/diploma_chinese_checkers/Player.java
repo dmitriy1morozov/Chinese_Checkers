@@ -13,7 +13,7 @@ import android.util.Log;
 public class Player
 {
     //==================== Constats ================================================================
-    public final static String TAG = "===player===";
+    public final static String TAG = "===Player===";
 
     //==================== Fields ==================================================================
     private Checker[] _checker = new Checker[10];
@@ -136,10 +136,12 @@ public class Player
      */
     public boolean move(Cell destinationCell) throws IllegalArgumentException
     {
+        /*
         int fromX = _curCell.getX();
         int fromY = _curCell.getY();
         int toX = destinationCell.getX();
         int toY = destinationCell.getY();
+        */
 
         if (destinationCell == get_startCell())
         {
@@ -164,12 +166,11 @@ public class Player
 
 
         // ------ Move ------
-        if (!_isJumping &&
-                (toY == _startCell.getY() && Math.abs(toX - _startCell.getX()) == 2) ||
-                (Math.abs(toX - _startCell.getX()) == 1 && Math.abs(toY - _startCell.getY()) == 1))
+        if (!_isJumping && distance(_startCell, destinationCell) == 1)
         {
             Log.d(TAG, "------ Move _checker ------");
-            Log.d(TAG, "Move _checker to a cell (" + toX + "," + toY + ")");
+            Log.d(TAG, "distance = " + distance(_startCell, destinationCell));
+            Log.d(TAG, "Move _checker from (" + _curCell.getX() + "," + _curCell.getY() + ") -> (" + destinationCell.getX() + "," + destinationCell.getY() + ")");
             this._isMoving = true;
             this._curCell.setPreOccupiedStatus(false);
             this._curCell = destinationCell;
@@ -178,14 +179,10 @@ public class Player
         }
 
         // ------ Jump ------
-        if (!_isMoving &&
-                ((toY == fromY && Math.abs(toX - fromX) == 4) || (Math.abs(toX - fromX) == 2 && Math.abs(toY - fromY) == 2)) &&
-                (main._gameTableCell[(fromX + (toX - fromX) / 2)][(fromY  + (toY - fromY) / 2)].getPlayerIndex() != -1)
-                )
+        if (!_isMoving && isJumpAllowed(_curCell, destinationCell))
         {
             Log.d(TAG, "------ Jump _checker ------");
-            Log.d(TAG, "Jump! (" + fromX + "," + fromY + ") -> (" + toX + "," + toY + ") " +
-                    "Over (" + (fromX + (toX - fromX) / 2)+ "," + (fromY  + (toY - fromY) / 2) + ")");
+            Log.d(TAG, "Jump! (" + _curCell.getX() + "," + _curCell.getY() + ") -> (" + destinationCell.getX() + "," + destinationCell.getY() + ")");
             this._isJumping = true;
             this._curCell.setPreOccupiedStatus(false);
             this._curCell = destinationCell;
@@ -194,6 +191,42 @@ public class Player
         }
 
         return false;
+    }
+
+    private int distance(Cell startCell, Cell destinationCell)
+    {
+        CellCube startCellCube = startCell.getCellCube();
+        CellCube destinationCellCube = destinationCell.getCellCube();
+
+        int distance = Math.abs(startCellCube.getX() - destinationCellCube.getX()) +
+                Math.abs(startCellCube.getY() - destinationCellCube.getY()) +
+                Math.abs(startCellCube.getZ() - destinationCellCube.getZ());
+        distance /= 2;
+        return distance;
+    }
+
+    private boolean isJumpAllowed(Cell startCell, Cell destinationCell)
+    {
+        if(distance(startCell, destinationCell) != 2)
+        {
+            return false;
+        }
+        if(destinationCell._isOccupied)
+        {
+            return false;
+        }
+
+        CellCube startCellCube = startCell.getCellCube();
+        CellCube destinationCellCube = destinationCell.getCellCube();
+
+        int middleX = (startCellCube.getX() + destinationCellCube.getX()) / 2;
+        int middleY = (startCellCube.getY() + destinationCellCube.getY()) / 2;
+        int middleZ = (startCellCube.getZ() + destinationCellCube.getZ()) / 2;
+
+        CellCube middleCellCube = new CellCube(middleX, middleY, middleZ);
+        Cell middleCell = middleCellCube.getOddRCell();
+
+        return middleCell._isOccupied;
     }
 
     //TODO Doesn't work from outside yet

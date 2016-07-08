@@ -38,80 +38,80 @@ public class Home
 
         if(color == red)
         {
-            _cell[0] = main._gameTableCell[9][3];
-            _cell[1] = main._gameTableCell[11][3];
-            _cell[2] = main._gameTableCell[13][3];
-            _cell[3] = main._gameTableCell[15][3];
-            _cell[4] = main._gameTableCell[10][2];
-            _cell[5] = main._gameTableCell[12][2];
-            _cell[6] = main._gameTableCell[14][2];
-            _cell[7] = main._gameTableCell[11][1];
-            _cell[8] = main._gameTableCell[13][1];
-            _cell[9] = main._gameTableCell[12][0];
+            _cell[0] = main._gameTableCell[4][3];
+            _cell[1] = main._gameTableCell[5][3];
+            _cell[2] = main._gameTableCell[6][3];
+            _cell[3] = main._gameTableCell[7][3];
+            _cell[4] = main._gameTableCell[5][2];
+            _cell[5] = main._gameTableCell[6][2];
+            _cell[6] = main._gameTableCell[7][2];
+            _cell[7] = main._gameTableCell[5][1];
+            _cell[8] = main._gameTableCell[6][1];
+            _cell[9] = main._gameTableCell[6][0];
         }
         if(color == purple)
         {
-            _cell[0] = main._gameTableCell[18][4];
-            _cell[1] = main._gameTableCell[19][5];
-            _cell[2] = main._gameTableCell[20][6];
-            _cell[3] = main._gameTableCell[21][7];
-            _cell[4] = main._gameTableCell[20][4];
-            _cell[5] = main._gameTableCell[21][5];
-            _cell[6] = main._gameTableCell[22][6];
-            _cell[7] = main._gameTableCell[22][4];
-            _cell[8] = main._gameTableCell[23][5];
-            _cell[9] = main._gameTableCell[24][4];
+            _cell[0] = main._gameTableCell[9][4];
+            _cell[1] = main._gameTableCell[9][5];
+            _cell[2] = main._gameTableCell[10][6];
+            _cell[3] = main._gameTableCell[10][7];
+            _cell[4] = main._gameTableCell[10][4];
+            _cell[5] = main._gameTableCell[10][5];
+            _cell[6] = main._gameTableCell[11][6];
+            _cell[7] = main._gameTableCell[11][4];
+            _cell[8] = main._gameTableCell[11][5];
+            _cell[9] = main._gameTableCell[12][4];
         }
         if(color == blue)
         {
-            _cell[0] = main._gameTableCell[21][9];
-            _cell[1] = main._gameTableCell[20][10];
-            _cell[2] = main._gameTableCell[19][11];
-            _cell[3] = main._gameTableCell[18][12];
-            _cell[4] = main._gameTableCell[22][10];
-            _cell[5] = main._gameTableCell[21][11];
-            _cell[6] = main._gameTableCell[20][12];
-            _cell[7] = main._gameTableCell[23][11];
-            _cell[8] = main._gameTableCell[22][12];
-            _cell[9] = main._gameTableCell[24][12];
+            _cell[0] = main._gameTableCell[10][9];
+            _cell[1] = main._gameTableCell[10][10];
+            _cell[2] = main._gameTableCell[9][11];
+            _cell[3] = main._gameTableCell[9][12];
+            _cell[4] = main._gameTableCell[11][10];
+            _cell[5] = main._gameTableCell[10][11];
+            _cell[6] = main._gameTableCell[10][12];
+            _cell[7] = main._gameTableCell[11][11];
+            _cell[8] = main._gameTableCell[11][12];
+            _cell[9] = main._gameTableCell[12][12];
         }
         if(color == green)
         {
-            _cell[0] = main._gameTableCell[15][13];
-            _cell[1] = main._gameTableCell[13][13];
-            _cell[2] = main._gameTableCell[11][13];
-            _cell[3] = main._gameTableCell[9][13];
-            _cell[4] = main._gameTableCell[14][14];
-            _cell[5] = main._gameTableCell[12][14];
-            _cell[6] = main._gameTableCell[10][14];
-            _cell[7] = main._gameTableCell[13][15];
-            _cell[8] = main._gameTableCell[11][15];
-            _cell[9] = main._gameTableCell[12][16];
+            _cell[0] = main._gameTableCell[4][13];
+            _cell[1] = main._gameTableCell[5][13];
+            _cell[2] = main._gameTableCell[6][13];
+            _cell[3] = main._gameTableCell[7][13];
+            _cell[4] = main._gameTableCell[5][14];
+            _cell[5] = main._gameTableCell[6][14];
+            _cell[6] = main._gameTableCell[7][14];
+            _cell[7] = main._gameTableCell[5][15];
+            _cell[8] = main._gameTableCell[6][15];
+            _cell[9] = main._gameTableCell[6][16];
         }
         if(color == yellow)
         {
-            _cell[0] = main._gameTableCell[6][12];
-            _cell[1] = main._gameTableCell[5][11];
-            _cell[2] = main._gameTableCell[4][10];
-            _cell[3] = main._gameTableCell[3][9];
-            _cell[4] = main._gameTableCell[4][12];
-            _cell[5] = main._gameTableCell[3][11];
-            _cell[6] = main._gameTableCell[2][10];
-            _cell[7] = main._gameTableCell[2][12];
-            _cell[8] = main._gameTableCell[1][11];
+            _cell[0] = main._gameTableCell[3][12];
+            _cell[1] = main._gameTableCell[2][11];
+            _cell[2] = main._gameTableCell[2][10];
+            _cell[3] = main._gameTableCell[1][9];
+            _cell[4] = main._gameTableCell[2][12];
+            _cell[5] = main._gameTableCell[1][11];
+            _cell[6] = main._gameTableCell[1][10];
+            _cell[7] = main._gameTableCell[1][12];
+            _cell[8] = main._gameTableCell[0][11];
             _cell[9] = main._gameTableCell[0][12];
         }
         if(color == orange)
         {
-            _cell[0] = main._gameTableCell[3][7];
-            _cell[1] = main._gameTableCell[4][6];
-            _cell[2] = main._gameTableCell[5][5];
-            _cell[3] = main._gameTableCell[6][4];
-            _cell[4] = main._gameTableCell[2][6];
-            _cell[5] = main._gameTableCell[3][5];
-            _cell[6] = main._gameTableCell[4][4];
-            _cell[7] = main._gameTableCell[1][5];
-            _cell[8] = main._gameTableCell[2][4];
+            _cell[0] = main._gameTableCell[1][7];
+            _cell[1] = main._gameTableCell[2][6];
+            _cell[2] = main._gameTableCell[2][5];
+            _cell[3] = main._gameTableCell[3][4];
+            _cell[4] = main._gameTableCell[1][6];
+            _cell[5] = main._gameTableCell[1][5];
+            _cell[6] = main._gameTableCell[2][4];
+            _cell[7] = main._gameTableCell[0][5];
+            _cell[8] = main._gameTableCell[1][4];
             _cell[9] = main._gameTableCell[0][4];
         }
     }
