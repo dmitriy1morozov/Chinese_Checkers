@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Diploma_Chinese_checkers.iml" filepath="$PROJECT_DIR$/Diploma_Chinese_checkers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chinese_Checkers.iml" filepath="$PROJECT_DIR$/Chinese_Checkers.iml" />
+      <module fileurl="file://C:\AndroidStudioProjects\Chinese_Checkers\Diploma_Chinese_checkers.iml" filepath="C:\AndroidStudioProjects\Chinese_Checkers\Diploma_Chinese_checkers.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\AndroidStudioProjects\Chinese_Checkers\app\app.iml" filepath="C:\AndroidStudioProjects\Chinese_Checkers\app\app.iml" />
     </modules>
   </component>
 </project>
